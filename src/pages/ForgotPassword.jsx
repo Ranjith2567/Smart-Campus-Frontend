@@ -10,7 +10,7 @@ const ForgotPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('http://localhost:5000/api/users/forgot-password', { email });
+      const { data } = await axios.post('https://smartcampusmanager.onrender.com/api/users/forgot-password', { email });
       setMessage(data.message);
     } catch (err) {
       alert("Email not found!");

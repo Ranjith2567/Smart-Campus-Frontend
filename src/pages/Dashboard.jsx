@@ -51,7 +51,7 @@ const Dashboard = () => {
   const fetchStudents = async (token) => {
     try {
       const config = { headers: { Authorization: `Bearer ${token}` } };
-      const { data } = await axios.get('http://localhost:5000/api/users', config);
+      const { data } = await axios.get('https://smartcampusmanager.onrender.com/api/users', config);
       setStudents(data);
     } catch (error) { console.error("Data fetch error", error); }
   };
@@ -59,14 +59,14 @@ const Dashboard = () => {
   const fetchStats = async (token) => {
     try {
       const config = { headers: { Authorization: `Bearer ${token}` } };
-      const { data } = await axios.get('http://localhost:5000/api/attendance/stats', config);
+      const { data } = await axios.get('https://smartcampusmanager.onrender.com/api/attendance/stats', config);
       setStats({ present: data.presentCount, absent: data.absentCount });
     } catch (error) { console.error("Stats fetch error", error); }
   };
 
   const fetchNotices = async () => {
     try {
-      const { data } = await axios.get('http://localhost:5000/api/notices');
+      const { data } = await axios.get('https://smartcampusmanager.onrender.com/api/notices');
       setNotices(data);
     } catch (error) { console.error("Notice fetch error", error); }
   };
@@ -75,7 +75,7 @@ const Dashboard = () => {
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
       const today = new Date().toISOString().split('T')[0];
-      await axios.post('http://localhost:5000/api/attendance', {
+      await axios.post('https://smartcampusmanager.onrender.com/api/attendance', {
         studentId, date: today, status: status
       }, config);
       alert(`${status === 'Present' ? '✅' : '❌'} Marked for ${studentName}`);
@@ -88,10 +88,10 @@ const Dashboard = () => {
     const config = { headers: { Authorization: `Bearer ${user.token}` } };
     try {
       if (editingNoticeId) {
-        await axios.put(`http://localhost:5000/api/notices/${editingNoticeId}`, { title: noticeTitle, content: noticeContent }, config);
+        await axios.put(`https://smartcampusmanager.onrender.com/api/notices/${editingNoticeId}`, { title: noticeTitle, content: noticeContent }, config);
         alert('Updated! 📝');
       } else {
-        await axios.post('http://localhost:5000/api/notices', { title: noticeTitle, content: noticeContent }, config);
+        await axios.post('https://smartcampusmanager.onrender.com/api/notices', { title: noticeTitle, content: noticeContent }, config);
         alert('Published! 📢');
       }
       setNoticeTitle(''); setNoticeContent(''); setEditingNoticeId(null);
@@ -102,7 +102,7 @@ const Dashboard = () => {
   const handleDeleteNotice = async (id) => {
     if (window.confirm('Delete notice?')) {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      await axios.delete(`http://localhost:5000/api/notices/${id}`, config);
+      await axios.delete(`https://smartcampusmanager.onrender.com/api/notices/${id}`, config);
       fetchNotices();
     }
   };
@@ -110,7 +110,7 @@ const Dashboard = () => {
   const deleteStudent = async (id) => {
     if (window.confirm('Delete student?')) {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      await axios.delete(`http://localhost:5000/api/users/${id}`, config);
+      await axios.delete(`https://smartcampusmanager.onrender.com/api/users/${id}`, config);
       fetchStudents(user.token);
     }
   };

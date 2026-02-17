@@ -17,7 +17,7 @@ const Register = () => {
     setLoading(true);
 
     try {
-      const { data } = await axios.post('http://localhost:5000/api/users', { 
+      const { data } = await axios.post('https://smartcampusmanager.onrender.com/api/users', { 
         name, 
         email, 
         password,

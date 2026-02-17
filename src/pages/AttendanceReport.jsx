@@ -17,7 +17,7 @@ const AttendanceReport = () => {
         params: { startDate, endDate }
       };
 
-      const { data } = await axios.get('http://localhost:5000/api/attendance', config);
+      const { data } = await axios.get('https://smartcampusmanager.onrender.com/api/attendance', config);
       setReports(data);
     } catch (error) {
       console.error("Critical: Failed to retrieve attendance records.", error);

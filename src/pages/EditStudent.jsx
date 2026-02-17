@@ -18,7 +18,7 @@ const EditStudent = () => {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         };
 
-        const { data } = await axios.get('http://localhost:5000/api/users', config);
+        const { data } = await axios.get('https://smartcampusmanager.onrender.com/api/users', config);
         const student = data.find(s => s._id === id);
         if (student) {
           setName(student.name);
@@ -41,7 +41,7 @@ const EditStudent = () => {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       };
 
-      await axios.put(`http://localhost:5000/api/users/${id}`, { name, email }, config);
+      await axios.put(`https://smartcampusmanager.onrender.com/api/users/${id}`, { name, email }, config);
       alert('Student Updated Successfully! ✨');
       navigate('/dashboard');
     } catch (error) {

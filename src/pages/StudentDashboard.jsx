@@ -32,14 +32,14 @@ const StudentDashboard = () => {
   const fetchMyAttendance = async (token) => {
     try {
       const config = { headers: { Authorization: `Bearer ${token}` } };
-      const { data } = await axios.get('http://localhost:5000/api/attendance/my-attendance', config);
+      const { data } = await axios.get('https://smartcampusmanager.onrender.com/api/attendance/my-attendance', config);
       setAttendance(data);
     } catch (error) { console.error("Attendance Error:", error); }
   };
 
   const fetchNotices = async () => {
     try {
-      const { data } = await axios.get('http://localhost:5000/api/notices');
+      const { data } = await axios.get('https://smartcampusmanager.onrender.com/api/notices');
       setNotices(data);
     } catch (error) { console.error("Notice Error:", error); }
   };

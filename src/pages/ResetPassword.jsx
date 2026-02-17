@@ -11,7 +11,7 @@ const ResetPassword = () => {
   const handleReset = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/users/reset-password/${token}`, { password });
+      await axios.put(`https://smartcampusmanager.onrender.com/api/users/reset-password/${token}`, { password });
       alert('Password Updated! 🎉 Login now.');
       navigate('/');
     } catch (err) {

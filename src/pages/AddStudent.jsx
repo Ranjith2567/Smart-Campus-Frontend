@@ -24,7 +24,7 @@ const AddStudent = () => {
       };
 
       await axios.post(
-        'http://localhost:5000/api/users', 
+        'https://smartcampusmanager.onrender.com/api/users', 
         { name, email, password, role: 'student' }, 
         config
       );
