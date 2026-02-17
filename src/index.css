@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5; /* Light Grey Background */
+  font-family: sans-serif;
+}
+
+/* Mobile-la table horizontal scroll vara */
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Chinna screen-la padding adjust panna */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  .card {
+    margin-bottom: 15px;
+  }
+}
+
+/* Mobile-la table overflow aagama irukka */
+.table-responsive {
+  border: 0;
+  margin-bottom: 0;
+}
+
+/* Phone-la cards-ku naduvula gap vara */
+@media (max-width: 576px) {
+  .card {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  h2, h3 {
+    font-size: 1.5rem !important; /* Title-ai konjam kuraika */
+  }
+}
+/* Mobile-la screen edge-la card ottaama irukka padding */
+@media (max-width: 576px) {
+  .container-fluid {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  
+  /* Buttons mobile-la konjam perusa (easy to touch) irukka */
+  .btn {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  /* Form labels gap adjust panna */
+  .form-label {
+    margin-bottom: 5px;
+  }
+}
